@@ -29,6 +29,6 @@ describe('simpleCalculator tests', () => {
   });
 
   test('should return null for invalid arguments', () => {
-    expect(simpleCalculator({a: 'text',b: true, action: INVALID_ACTION})).toBe(null);
+    expect(simpleCalculator({a: 'text',b: true, action: Action.Add})).toBe(null);
   });
 });
