@@ -5,30 +5,34 @@ const INVALID_ACTION = 'meow';
 
 describe('simpleCalculator tests', () => {
   test('should add two numbers', () => {
-    expect(simpleCalculator({a: 2,b: 3, action: Action.Add})).toBe(5);
+    expect(simpleCalculator({ a: 2, b: 3, action: Action.Add })).toBe(5);
   });
 
   test('should subtract two numbers', () => {
-    expect(simpleCalculator({a: 2,b: 3, action: Action.Subtract})).toBe(-1);
+    expect(simpleCalculator({ a: 2, b: 3, action: Action.Subtract })).toBe(-1);
   });
 
   test('should multiply two numbers', () => {
-    expect(simpleCalculator({a: 2,b: 3, action: Action.Multiply})).toBe(6);
+    expect(simpleCalculator({ a: 2, b: 3, action: Action.Multiply })).toBe(6);
   });
 
   test('should divide two numbers', () => {
-    expect(simpleCalculator({a: 9,b: 3, action: Action.Divide})).toBe(3);
+    expect(simpleCalculator({ a: 9, b: 3, action: Action.Divide })).toBe(3);
   });
 
   test('should exponentiate two numbers', () => {
-    expect(simpleCalculator({a: 2,b: 4, action: Action.Exponentiate})).toBe(16);
+    expect(simpleCalculator({ a: 2, b: 4, action: Action.Exponentiate })).toBe(
+      16,
+    );
   });
 
   test('should return null for invalid action', () => {
-    expect(simpleCalculator({a: 2,b: 4, action: INVALID_ACTION})).toBe(null);
+    expect(simpleCalculator({ a: 2, b: 4, action: INVALID_ACTION })).toBe(null);
   });
 
   test('should return null for invalid arguments', () => {
-    expect(simpleCalculator({a: 'text',b: true, action: Action.Add})).toBe(null);
+    expect(simpleCalculator({ a: 'text', b: true, action: Action.Add })).toBe(
+      null,
+    );
   });
 });

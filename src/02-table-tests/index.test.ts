@@ -4,7 +4,9 @@ import { simpleCalculator, Action } from './index';
 const INVALID_ACTION = 'meow';
 
 function getActionKeyByValue(value: string): string {
-  const actionKey = Object.keys(Action).find(key => Action[key as keyof typeof Action] === value);
+  const actionKey = Object.keys(Action).find(
+    (key) => Action[key as keyof typeof Action] === value,
+  );
   return actionKey || 'Invalid';
 }
 
@@ -22,18 +24,21 @@ const testCases = [
   { a: -15, b: 5, action: Action.Divide, expected: -3 },
   { a: 5, b: 10, action: Action.Divide, expected: 0.5 },
 
-  {a: 15,b: 5, action: Action.Multiply, expected: 75}, 
-  {a: 0.5,b: 2, action: Action.Multiply, expected: 1}, 
-  {a:-2,b: 2, action: Action.Multiply, expected: -4}, 
-  {a:2,b: 2, action: Action.Multiply, expected: 4}, 
+  { a: 15, b: 5, action: Action.Multiply, expected: 75 },
+  { a: 0.5, b: 2, action: Action.Multiply, expected: 1 },
+  { a: -2, b: 2, action: Action.Multiply, expected: -4 },
+  { a: 2, b: 2, action: Action.Multiply, expected: 4 },
 
-  {a:2,b: 4, action: Action.Exponentiate, expected: 16}, 
-  {a:16,b: 0.5, action: Action.Exponentiate, expected: 4}, 
+  { a: 2, b: 4, action: Action.Exponentiate, expected: 16 },
+  { a: 16, b: 0.5, action: Action.Exponentiate, expected: 4 },
 
-  {a: 2,b: 4, action: INVALID_ACTION, expected: null},
-  {a: 'text',b: true, action: Action.Add, expected: null},
-]
+  { a: 2, b: 4, action: INVALID_ACTION, expected: null },
+  { a: 'text', b: true, action: Action.Add, expected: null },
+];
 
 describe.each(testCases)('simpleCalculator', ({ a, b, action, expected }) => {
-  test(`should return ${expected} when executes ${getActionKeyByValue(action)} action with ${a} and ${b} as args`, () => expect(simpleCalculator({ a, b, action })).toBe(expected));
+  test(`should return ${expected} when executes ${getActionKeyByValue(
+    action,
+  )} action with ${a} and ${b} as args`, () =>
+    expect(simpleCalculator({ a, b, action })).toBe(expected));
 });
