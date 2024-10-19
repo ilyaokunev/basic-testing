@@ -98,7 +98,7 @@ describe('BankAccount', () => {
         return new Promise((res) => res(null));
       });
 
-    expect(() => account.synchronizeBalance()).rejects.toThrowError(
+    expect(account.synchronizeBalance()).rejects.toThrowError(
       SynchronizationFailedError,
     );
 
