@@ -1,32 +1,38 @@
 // Uncomment the code below and write your tests
-// import { simpleCalculator, Action } from './index';
+import { simpleCalculator, Action } from './index';
+
+const INVALID_ACTION = 'meow';
 
 describe('simpleCalculator tests', () => {
   test('should add two numbers', () => {
-    // Write your test here
+    expect(simpleCalculator({ a: 2, b: 3, action: Action.Add })).toBe(5);
   });
 
   test('should subtract two numbers', () => {
-    // Write your test here
+    expect(simpleCalculator({ a: 2, b: 3, action: Action.Subtract })).toBe(-1);
   });
 
   test('should multiply two numbers', () => {
-    // Write your test here
+    expect(simpleCalculator({ a: 2, b: 3, action: Action.Multiply })).toBe(6);
   });
 
   test('should divide two numbers', () => {
-    // Write your test here
+    expect(simpleCalculator({ a: 9, b: 3, action: Action.Divide })).toBe(3);
   });
 
   test('should exponentiate two numbers', () => {
-    // Write your test here
+    expect(simpleCalculator({ a: 2, b: 4, action: Action.Exponentiate })).toBe(
+      16,
+    );
   });
 
   test('should return null for invalid action', () => {
-    // Write your test here
+    expect(simpleCalculator({ a: 2, b: 4, action: INVALID_ACTION })).toBe(null);
   });
 
   test('should return null for invalid arguments', () => {
-    // Write your test here
+    expect(simpleCalculator({ a: 'text', b: true, action: Action.Add })).toBe(
+      null,
+    );
   });
 });
